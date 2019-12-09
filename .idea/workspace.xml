@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5b4331b-49c1-48b3-87f6-7bed399e6b17" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="2c137b2d-7803-456f-826b-a60351be526a" />
@@ -35,20 +34,30 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="PhpDebugGeneral" listening_started="true" />
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.2">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ToWvjlTOZARaXOdsW0QSr1Tpz2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../php/php.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -57,17 +66,10 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="settings.php.debug.servers" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/style" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/index.php">
@@ -78,6 +80,18 @@
         <item itemvalue="PHP Script.index.php" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -93,21 +107,53 @@
       <workItem from="1574140395573" duration="2906000" />
       <workItem from="1574145438227" duration="7805000" />
       <workItem from="1574154731307" duration="13260000" />
+      <workItem from="1575894633630" duration="5085000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/index.php</url>
-          <line>3</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="WindowStateProjectService">
+    <state x="539" y="179" width="824" height="679" key="#CLI_Interpreters" timestamp="1575897530586">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="539" y="179" width="824" height="679" key="#CLI_Interpreters/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1575897530586" />
+    <state x="639" y="117" width="633" height="808" key="#PHP" timestamp="1575897535903">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="639" y="117" width="633" height="808" key="#PHP/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1575897535903" />
+    <state x="669" y="217" width="572" height="612" key="#index.php" timestamp="1575897538432">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="669" y="217" width="572" height="612" key="#index.php/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1575897538432" />
+    <state x="733" y="279" width="424" height="479" key="FileChooserDialogImpl" timestamp="1575897490994">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="733" y="279" width="424" height="479" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1575897490994" />
+    <state width="1878" height="281" key="GridCell.Tab.0.bottom" timestamp="1575897727752">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1575897727752" />
+    <state width="1878" height="281" key="GridCell.Tab.0.center" timestamp="1575897727752">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="281" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1575897727752" />
+    <state width="1878" height="281" key="GridCell.Tab.0.left" timestamp="1575897727752">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="281" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1575897727752" />
+    <state width="1878" height="281" key="GridCell.Tab.0.right" timestamp="1575897727752">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1878" height="281" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1575897727752" />
+    <state x="709" y="345" width="492" height="356" key="NewPhpClassDialog" timestamp="1575895762898">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="709" y="345" width="492" height="356" key="NewPhpClassDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1575895762898" />
+    <state x="778" y="452" width="354" height="142" key="NewPhpFileDialog" timestamp="1575895770678">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="778" y="452" width="354" height="142" key="NewPhpFileDialog/0.0.1920.1040/1920.0.1920.1080@0.0.1920.1040" timestamp="1575895770678" />
   </component>
 </project>
