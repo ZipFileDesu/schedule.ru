@@ -1,3 +1,8 @@
+<link rel="stylesheet" href="style/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="style/css/bootstrap-custom-style.css" type="text/css">
+<script type="text/javascript" src="style/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="style/js/bootstrap.bundle.min.js"></script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +10,24 @@
     <title>Title</title>
 </head>
 <body>
-{% for user in users %}
-<h1> {{ user.name }}, {{ user.email }} </h1>
-{% endfor %}
+
+<div class="bg-light border-right sidebar" id="sidebar">
+    <div class="sidebar-heading">Меню </div>
+    <div class="list-group list-group-flush">
+        <a href="students.php" class="list-group-item list-group-item-action" id="students">Список студентов</a>
+        <a href="schedule.php" class="list-group-item list-group-item-action" id="schedule">Расписание</a>
+        <a href="#" class="list-group-item list-group-item-action" id="tasks">Задания</a>
+        <a href="#" class="list-group-item list-group-item-action" id="marks">Оценки студентов</a>
+    </div>
+</div>
+
+<div id="page-content-wrapper">
+
+    {% block content %}
+
+    {% endblock %}
+
+</div>
+
 </body>
 </html>

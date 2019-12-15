@@ -1,0 +1,63 @@
+/* Навигационное меню сайдбара */
+.sidebar {
+    width: 250px;
+    float: left;
+	height: 100%;
+    position: relative;
+}
+
+/* Стиль сайдбара */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 13px;
+  text-decoration: none;
+}
+
+/* Цвет вкладки при наведении на неё мышкой */
+.sidebar .list-group > a:hover, #sidebar .list-group > a:focus {
+    background-color: lightgrey;
+    border-color: black;
+    color: black;
+}
+
+/* Цвет выбранной вкладки */
+.sidebar .list-group > a.active{
+    background-color: lightgray;
+    border-color: black;
+    color: black
+}
+
+/* Стиль левого блока */
+#page-content-wrapper {
+    position: relative;
+    margin-left: 250px;
+}
+
+/* Стиль формы меню студентов */
+#form-students {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+/* При нажатии на кнопку, меняем стиль вкладки */
+/*.sidebar a:active {
+  color: #ffffff;
+  background-color: #7abaff;
+  border-color: #494F57;
+}*/
+
+/* Вкладка при нажатии мыши */
+/*.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+}*/
+
+/* Цвет вкладки при выборе мышью */
+/*.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}*/
+
+/*
