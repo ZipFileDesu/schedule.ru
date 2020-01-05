@@ -28,17 +28,45 @@
     color: black
 }
 
-/* Стиль левого блока */
+/* Стиль формы меню студентов */
+#main-form {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+/* Стиль основного правого блока */
 #page-content-wrapper {
     position: relative;
     margin-left: 250px;
+    height: 100%;
+    overflow-y: scroll;
 }
 
-/* Стиль формы меню студентов */
-#form-students {
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-bottom: 10px;
+/* Стиль кнопки логина */
+#button-login{
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    border-color: lightgrey;
+}
+
+#login-form{
+    display: block;
+    padding: 10% 35%;
+}
+
+th[aria-sort='ascending']:after{
+    content: "\2193";
+    padding-left: 20px;
+}
+
+th[aria-sort='descending']:after{
+    content: "\2191";
+    padding-left: 20px;
+}
+
+th[role=columnheader] {
+    cursor: pointer;
 }
 
 /* При нажатии на кнопку, меняем стиль вкладки */

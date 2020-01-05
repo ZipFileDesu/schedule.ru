@@ -14,28 +14,28 @@
       <Owner>postgres</Owner>
       <IntrospectionStateNumber>1012</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|16681|16678|1
+      <Relations>sequence|table|16837|16831|1
+sequence|table|16779|16710|1
+sequence|table|16748|16742|1
+sequence|table|16766|16760|1
+sequence|table|16681|16678|1
 sequence|table|16686|16683|1
-sequence|table|16694|16688|1
 sequence|table|16699|16696|1
 sequence|table|16716|16713|1
 sequence|table|16721|16718|1
 sequence|table|16726|16723|1
 sequence|table|16731|16728|1
-sequence|table|16740|16737|1
-sequence|table|16748|16742|1
+sequence|table|16694|16688|1
 sequence|table|16753|16750|1
 sequence|table|16758|16755|1
-sequence|table|16766|16760|1
-sequence|table|16779|16710|1
-sequence|table|16786|16733|1
-sequence|table|16788|16733|2
-sequence|table|16790|16733|3
-sequence|table|16792|16768|1
-sequence|table|16794|16768|2
-sequence|table|16837|16831|1
+sequence|table|16740|16737|1
 sequence|table|16842|16839|1
 sequence|table|16847|16844|1
+sequence|table|16790|16733|3
+sequence|table|16794|16768|2
+sequence|table|16788|16733|2
+sequence|table|16792|16768|1
+sequence|table|16786|16733|1
 </Relations>
     </database>
     <database id="4" parent="1" name="php_course">

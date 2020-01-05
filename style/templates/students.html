@@ -5,7 +5,7 @@
     document.getElementById("students").classList.add('active');
 </script>
 
-<form class="form-inline" id="form-students" method="get">
+<form class="form-inline" id="main-form" method="get">
     <div class="form-group mx-sm-3 mb-2">
         <select class="form-control form-control-sm" id="group" name="group">
             <option value="0">Все группы</option>
@@ -17,7 +17,7 @@
     <button type="submit" class="btn btn-primary mb-2" id="filterGroup" name="filterGroup">Выполнить</button>
 </form>
 
-<table class="table">
+<table class="table" id="students-table">
     <thead>
     <tr>
         <th scope="col">Полное имя</th>
@@ -27,7 +27,7 @@
     <tbody>
     {% for student in students %}
     <tr>
-        <td>{{ student.name }}</td>
+        <td> <a href="" onclick="window.open('selected_student.php?st_id={{ student.id }}', '_blank', 'height=640,width=640');"> {{ student.name }} </a></td>
         <td>{{ student.group }}</td>
     </tr>
     {% endfor %}

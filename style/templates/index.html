@@ -1,13 +1,15 @@
-<link rel="stylesheet" href="style/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="style/css/bootstrap-custom-style.css" type="text/css">
-<script type="text/javascript" src="style/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="style/js/bootstrap.bundle.min.js"></script>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="style/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="style/css/bootstrap-custom-style.css" type="text/css">
+    <script type="text/javascript" src="style/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="style/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src ="style/js/jQuery_3.4.1.js"></script>
+    <script type="text/javascript" src="style/js/tablesort.min.js"></script>
+    <link rel="stylesheet" href="style/css/fontawesome.css" type="text/css">
 </head>
 <body>
 
@@ -16,10 +18,14 @@
     <div class="list-group list-group-flush">
         <a href="students.php" class="list-group-item list-group-item-action" id="students">Список студентов</a>
         <a href="schedule.php" class="list-group-item list-group-item-action" id="schedule">Расписание</a>
-        <a href="#" class="list-group-item list-group-item-action" id="tasks">Задания</a>
-        <a href="#" class="list-group-item list-group-item-action" id="marks">Оценки студентов</a>
+        <a href="tasks.php" class="list-group-item list-group-item-action" id="tasks">Задания</a>
+        <a href="marks.php" class="list-group-item list-group-item-action" id="marks">Оценки студентов</a>
     </div>
 </div>
+
+<a href="login.php"><button class="btn" id="button-login">
+    Войти администратором
+</button></a>
 
 <div id="page-content-wrapper">
 
@@ -28,6 +34,13 @@
     {% endblock %}
 
 </div>
+
+<script>
+    $(document).ready(function () {
+        //new Tablesort(document.getElementById('students-table'));
+        new Tablesort(document.getElementById('marks-table'));
+    });
+</script>
 
 </body>
 </html>

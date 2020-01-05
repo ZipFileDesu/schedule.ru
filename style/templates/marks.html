@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<script>
+    document.getElementById('marks').classList.add('active');
+</script>
+
+<form class="form-inline" id="main-form" method="get">
+    <div class="form-group mx-sm-3 mb-2">
+        <select class="form-control form-control-sm" id="subject" name="subject">
+            {% for subject in subjects %}
+            <option id="subject-elem-{{ subject.id }}" value="{{ subject.id }}">{{ subject.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary mb-2" id="filterSubject" name="filterSubject">Выполнить</button>
+</form>
+
+<table class="table table-schedule" id="marks-table">
+    <thead>
+    <tr>
+        <th role="columnheader" scope="col">Студент</th>
+        {% for subject_task in subject_tasks %}
+        <th role="columnheader" scope="col"> {{ subject_task.text }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% for student in students_marks %}
+    {% if name != student.name %}
+    <tr>
+        <td>{{ student.name }}</td>
+        {% for mark in students_marks %}
+            {% if mark.name == student.name %}
+            <td>{{ mark.mark != 0 ? mark.mark : "-"}}</td>
+            {% endif %}
+        {% endfor %}
+    </tr>
+    {% endif %}
+    {% set name = student.name %}
+    {% endfor %}
+    </tbody>
+</table>
+
+<script>
+    document.getElementById('subject-elem-{{ subject_selected }}').setAttribute('selected', 'selected');
+</script>
+{% endblock %}

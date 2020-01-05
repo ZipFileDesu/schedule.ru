@@ -4,5 +4,127 @@
 <script>
     document.getElementById("schedule").classList.add("active");
 </script>
-    <h1>Ну вроде бы оно работает</h1>
+
+<form class="form-inline" id="main-form" method="get">
+    <div class="form-group mx-sm-3 mb-2">
+        <select class="form-control form-control-sm" id="group" name="group">
+            {% for group in groups %}
+            <option id="group-elem-{{ group.id }}" value={{ group.id }}>{{ group.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary mb-2" id="filterGroup" name="filterGroup">Выполнить</button>
+</form>
+
+<table class="table tablesorter" id="schedule-table">
+    <thead>
+    <tr>
+        <th scope="col">Время</th>
+        {% for dt in date %}
+            <th scope="col"> {{ dt.date }} </th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>8.30-10.00</td>
+            {% for dt in date %}
+            <td>
+            {% for sch in schedule %}
+            {% if sch.date == dt.date %}
+                {% if sch.pair_time == "08:30:00-10:00:00" %}
+                    {{ sch.lesson ~ " " ~ sch.classroom }}
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+            </td>
+            {% endfor %}
+        </tr>
+
+    <tr>
+        <td>10.10-11.40</td>
+        {% for dt in date %}
+        <td>
+        {% for sch in schedule %}
+            {% if sch.date == dt.date %}
+            {% if sch.pair_time == "10:10:00-11:40:00" %}
+                {{ sch.lesson ~ " " ~ sch.classroom }}
+            {% endif %}
+            {% endif %}
+        {% endfor %}
+        </td>
+        {% endfor %}
+    </tr>
+
+    <tr>
+        <td>11.50-13.20</td>
+        {% for dt in date %}
+        <td>
+        {% for sch in schedule %}
+        {% if sch.date == dt.date %}
+            {% if sch.pair_time == "11:50:00-13:20:00" %}
+                {{ sch.lesson ~ " " ~ sch.classroom }}
+            {% endif %}
+        {% endif %}
+        {% endfor %}
+        </td>
+        {% endfor %}
+    </tr>
+
+    <tr>
+        <td>13.30-15.00</td>
+        {% for dt in date %}
+        <td>
+            {% for sch in schedule %}
+            {% if sch.date == dt.date %}
+                {% if sch.pair_time == "13:30:00-15:00:00" %}
+                    {{ sch.lesson ~ " " ~ sch.classroom }}
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+        </td>
+        {% endfor %}
+    </tr>
+
+    <tr>
+        <td>15.10-16.40</td>
+        {% for dt in date %}
+        <td>
+            {% for sch in schedule %}
+            {% if sch.date == dt.date %}
+                {% if sch.pair_time == "15:10:00-16:40:00" %}
+                    {{ sch.lesson ~ " " ~ sch.classroom }}
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+        </td>
+        {% endfor %}
+    </tr>
+
+    <tr>
+        <td>16.50-18.20</td>
+        {% for dt in date %}
+        <td>
+            {% for sch in schedule %}
+            {% if sch.date == dt.date %}
+                {% if sch.pair_time == "16:50:00-18:20:00" %}
+                    {{ sch.lesson ~ " " ~ sch.classroom }}
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+        </td>
+        {% endfor %}
+        </tr>
+
+    </tbody>
+    <!-- <td>10.10-11.40</td>
+        <td>11.50-13.20</td>
+        <td>13.30-15.00</td>
+        <td>15.10-16.40</td>
+        <td>16.50-18.20</td>
+        <td>18.30-19.50</td> -->
+</table>
+<script>
+    document.getElementById('group-elem-{{ group_selected }}').setAttribute("selected", "selected");
+</script>
 {% endblock %}

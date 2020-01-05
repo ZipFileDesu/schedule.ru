@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block content %}
+<script>
+    document.getElementById("tasks").classList.add('active');
+</script>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Номер задания</th>
+        <th scope="col">Предмет</th>
+        <th scope="col">Текст задания</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for task in tasks %}
+    <tr>
+        <td>{{ task.id }}</td>
+        <td>{{ task.name }}</td>
+        <td>{{ task.text }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
