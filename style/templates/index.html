@@ -23,9 +23,15 @@
     </div>
 </div>
 
+{% if loginStatus == 'guest' %}
 <a href="login.php"><button class="btn" id="button-login">
     Войти администратором
 </button></a>
+{% elseif loginStatus == 'loggedIn' %}
+<a href="logout.php"><button class="btn" id="button-logout">
+    Выйти из системы
+</button></a>
+{% endif %}
 
 <div id="page-content-wrapper">
 

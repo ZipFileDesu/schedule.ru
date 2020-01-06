@@ -5,6 +5,12 @@
     document.getElementById("tasks").classList.add('active');
 </script>
 
+{% if loginStatus == 'guest' %}
+
+{% elseif loginStatus == 'loggedIn' %}
+<p>Привет админ! Это страница заданий</p>
+{% endif %}
+
 <table class="table">
     <thead>
     <tr>

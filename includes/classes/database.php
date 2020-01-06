@@ -128,4 +128,16 @@ class database
         }
         return $data;
     }
+
+    public function login($username, $password){
+        $password = md5($password);
+       if(pg_num_rows(pg_query($this->con, "SELECT * FROM public.\"users\" WHERE username = '$username' 
+                                 AND password = '$password'")) == 1){
+           return true;
+       }
+       else{
+           return false;
+       }
+
+    }
 }

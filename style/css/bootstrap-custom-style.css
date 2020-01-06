@@ -43,7 +43,7 @@
 }
 
 /* Стиль кнопки логина */
-#button-login{
+#button-login, #button-logout{
     position: fixed;
     bottom: 20px;
     left: 20px;

@@ -5,6 +5,12 @@
     document.getElementById('marks').classList.add('active');
 </script>
 
+{% if loginStatus == 'guest' %}
+
+{% elseif loginStatus == 'loggedIn' %}
+<p>Привет админ! Это страница оценок студентов</p>
+{% endif %}
+
 <form class="form-inline" id="main-form" method="get">
     <div class="form-group mx-sm-3 mb-2">
         <select class="form-control form-control-sm" id="subject" name="subject">
@@ -13,7 +19,7 @@
             {% endfor %}
         </select>
     </div>
-    <button type="submit" class="btn btn-primary mb-2" id="filterSubject" name="filterSubject">Выполнить</button>
+    <button type="submit" class="btn btn-primary mb-2" id="filterSubject">Выполнить</button>
 </form>
 
 <table class="table table-schedule" id="marks-table">

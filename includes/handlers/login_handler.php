@@ -1,10 +1,11 @@
 <?php
 if(isset($_POST['loginButton'])){
-    //$username = $_POST['loginUsername'];
-    //$password = $_POST['loginPassword'];
+    $username = $_POST['loginUsername'];
+    $password = $_POST['loginPassword'];
 
-    if(true){
-        echo $twig->render('login.html', array('error' => "Ошибка! Неправильный логин или пароль!"));
+    if($database->login($username, $password)){
+        $_SESSION['userLoggedIn'] = $username;
+        header("Location: index.php");
     }
     else{
         echo $twig->render('login.html', array('error' => "Ошибка! Неправильный логин или пароль!"));

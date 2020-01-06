@@ -3,7 +3,13 @@
     include ("includes/classes/database.php");
     ob_start();
     session_start();
-
+    $session = '';
+    if(isset($_SESSION['userLoggedIn'])) {
+        $session = 'loggedIn';
+    }
+    else{
+        $session = 'guest';
+    }
     $connection = pg_connect("host=localhost port=5432 dbname=fefu user=postgres password=postgres");
     $database = new database($connection);
 
