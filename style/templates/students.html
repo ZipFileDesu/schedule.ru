@@ -8,12 +8,38 @@
 {% if loginStatus == 'guest' %}
 
 {% elseif loginStatus == 'loggedIn' %}
-<p>Привет админ! Это страница студентов</p>
+<form class="container main-form border-bottom border-light mt-2" method="post">
+    <div class="form-group row">
+        <div class="col-3 p-1 ml-2">
+            <label for="firstname">Имя</label>
+            <input type="text" name="firstname" class="form-control" id="firstname" placeholder="Введите имя" required>
+        </div>
+        <div class="col-3 p-1">
+            <label for="lastname">Фамилия</label>
+            <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Введите фамилию" required>
+        </div>
+        <div class="col-3 p-1">
+            <label for="middlename">Отчество</label>
+            <input type="text" name="middlename" class="form-control" id="middlename" placeholder="Введите отчество">
+        </div>
+        <div class="col-1 p-1">
+            <label for="group-select">Группа</label>
+            <select class="form-control form-control-sm mt-1" name="group" id="group-select" required>
+                {% for group in groups %}
+                <option value={{ group.id }}>{{ group.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="align-self-end pl-1">
+            <button type="submit" class="btn btn-primary mb-1">Добавить</button>
+        </div>
+    </div>
+</form>
 {% endif %}
 
-<form class="form-inline" id="main-form" method="get">
+<form class="form-inline main-form" method="get">
     <div class="form-group mx-sm-3 mb-2">
-        <select class="form-control form-control-sm" id="group" name="group">
+        <select class="form-control form-control-sm" id="group-filter" name="group">
             <option value="0">Все группы</option>
             {% for group in groups %}
                 <option id="group-elem-{{ group.id }}" value={{ group.id }}>{{ group.name }}</option>
