@@ -1,6 +1,7 @@
 <?php
     require_once ("vendor/autoload.php");
     include ("includes/classes/database.php");
+    include ("includes/classes/constants.php");
     ob_start();
     session_start();
     $session = '';
@@ -10,9 +11,9 @@
     else{
         $session = 'guest';
     }
-    $dbname = '';
-    $user = '';
-    $password = '';
+    $dbname = 'fefu';
+    $user = 'postgres';
+    $password = 'root';
 
     $connection = pg_connect("host=localhost port=5432 dbname={$dbname} user={$user} password={$password}");
     $database = new database($connection);

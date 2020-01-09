@@ -1,9 +1,9 @@
 <?php
     if(isset($_GET['subject'])) {
-        $subject_id = $_GET['subject'];
+        $subjectId = $_GET['subject'];
         echo $twig->render('marks.html', array('subjects' => $database->getAllSubjects(),
-            'subject_tasks' => $database->getSubjectTasks($subject_id),
-            'students_marks' => $database->getMarks($subject_id), 'subject_selected' => $subject_id,
+            'subject_tasks' => $database->getSubjectTasks($subjectId),
+            'students_marks' => $database->getMarks($subjectId), 'subject_selected' => $subjectId,
             'loginStatus' => $session));
     }
     else{

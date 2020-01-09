@@ -1,6 +1,5 @@
 <?php
 
-
 class database
 {
     private $con;
@@ -45,6 +44,31 @@ class database
                 'task_text' => $row[4], 'mark' => $row[5]];
         }
         return $data;
+    }
+
+    public function insertStudent($firstName, $lastName, $middleName, $groupId){
+        $result = pg_query($this->con, "INSERT INTO public.\"Students\" 
+            (\"First_Name\", \"Last_Name\", \"Middle_Name\", \"Group_id\")
+            VALUES ('$firstName', '$lastName', '$middleName', '$groupId') RETURNING id");
+        $result = pg_fetch_array($result);
+        if ($result){
+            pg_query($this->con, "
+            DO
+            \$do\$
+                DECLARE 
+	                i bigint;
+            BEGIN
+	            FOR i iN 1..(SELECT COUNT(*) FROM public.\"Tasks\") LOOP
+		            INSERT INTO public.\"Marks\" (student_id, task_id, mark) VALUES ($result[id], i, null);
+	            END LOOP;
+            END
+            \$do\$
+            LANGUAGE plpgsql;");
+            return constants::studentSuccessfullInsert;
+        }
+        else{
+            return constants::studentFailedInsert;
+        }
     }
 
     public function getAllGroups(){
@@ -92,6 +116,30 @@ class database
             $data[] = ['id' => $row[0], 'name' => $row[1], 'text' => $row[2]];
         }
         return $data;
+    }
+
+    public function insertTask($subjectId, $text){
+        $result = pg_query($this->con,"INSERT INTO public.\"Tasks\" (\"subject_id\", \"Text\")
+            VALUES('$subjectId', '$text') RETURNING id");
+        $result = pg_fetch_array($result);
+        if($result){
+            pg_query($this->con,"
+        DO
+        \$do\$
+            DECLARE 
+	            i bigint;
+            BEGIN
+	            FOR i IN (SELECT id FROM public.\"Students\") LOOP
+		            INSERT INTO public.\"Marks\" (student_id, task_id, mark) VALUES(i, $result[id], null);
+	            END LOOP;
+            END
+        \$do\$
+        LANGUAGE plpgsql;");
+            return constants::taskSuccessfullInsert;
+        }
+        else{
+            constants::taskFailedInsert;
+        }
     }
 
     public function getAllSubjects(){
