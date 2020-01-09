@@ -8,10 +8,46 @@
 {% if loginStatus == 'guest' %}
 
 {% elseif loginStatus == 'loggedIn' %}
-<p>Привет админ! Это страница оценок студентов</p>
+<form class="container main-form border-bottom border-light mt-2" method="post">
+    <div class="form-group row">
+        <div class="col-4 form-group mb-2">
+            <label for="student">Студент</label>
+            <select class="form-control form-control" id="student" name="student" required>
+                <option value="1">Тыщенко Андрей</option>
+                <option value="1">Белоусова Кристина</option>
+                {% for s in students %}
+                <option value="{{ s.id }}">{{ s.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-4 form-group mb-2">
+            <label for="task">Задание</label>
+            <select class="form-control form-control" id="task" name="task" required>
+                <option value="1">Task 1-2</option>
+                <option value="2">Task 2-5</option>
+                {% for t in tasks %}
+                <option value="{{ t.id }}">{{ t.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-2 form-group mb-2">
+            <label for="assessment">Оценка</label>
+            <select class="form-control form-control" id="assessment" name="assessment" required>
+                <option value="1">5</option>
+                <option value="1">4</option>
+                {% for s in assessments %}
+                <option value="{{ r.id }}">{{ s.assessments }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-2 align-self-end pb-1">
+            <button type="submit" class="btn btn-primary mb-1">Добавить</button>
+        </div>
+    </div>
+</form>
 {% endif %}
 
-<form class="form-inline" id="main-form" method="get">
+<form class="form-inline main-form" method="get">
     <div class="form-group mx-sm-3 mb-2">
         <select class="form-control form-control-sm" id="subject" name="subject">
             {% for subject in subjects %}
