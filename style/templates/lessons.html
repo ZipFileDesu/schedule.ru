@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<script>
+  document.getElementById('marks').classList.add('active');
+</script>
+
+{% if loginStatus == 'guest' %}
+
+{% elseif loginStatus == 'loggedIn' %}
+<form class="container main-form border-bottom border-light mt-2" method="post">
+    <div class="form-group row">
+        <div class="col-4 form-group mb-2">
+            <label for="subject">Предмет</label>
+            <input name="subject" class="form-control" type="text" id="subject" required>
+        </div>
+        <div class="col-2 align-self-end pb-1">
+            <button type="submit" class="btn btn-primary mb-1">Добавить</button>
+        </div>
+    </div>
+</form>
+{% endif %}
+
+<table class="table" id="students-table">
+    <thead>
+    <tr>
+        <th scope="col">Название предмета</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for s in subjects %}
+    <tr>
+        <td>{{ s.name }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
