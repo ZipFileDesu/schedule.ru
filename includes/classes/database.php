@@ -151,6 +151,11 @@ class database
         return $data;
     }
 
+    public function insertSubject($new_subject){
+        $result = pg_query($this->con,"INSERT INTO public.\"Subjects\" (\"Name\") VALUES('$new_subject')");
+        return $result ? constants::subjectSuccessfullInsert : constants::subjectFailedInsert;
+    }
+
     public function getSubjectTasks($id){
         $data = [];
         $result = pg_query($this->con, "SELECT t1.id, t2.\"Name\", t1.\"Text\" FROM \"Tasks\" t1
