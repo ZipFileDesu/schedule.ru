@@ -85,6 +85,38 @@ class database
         return $result ? constants::groupSuccessfullInsert : constants::groupFailedInsert;
     }
 
+    public function getAllProfessors(){
+        $data = [];
+        $result = pg_query($this->con, "SELECT * FROM public.\"Professors\"");
+        while ($row = pg_fetch_row($result)) {
+            $data[] = ['id' => $row[0] ,'name' => $row[1]];
+        }
+        return $data;
+    }
+
+    public function getAllPairs(){
+        $data = [];
+        $result = pg_query($this->con,
+            "SELECT \"id\", \"Start_time\", \"End_time\" FROM public.\"Pairs\""
+        );
+        while ($row = pg_fetch_row($result)) {
+            $data[] = [
+                'id' => $row[0],
+                'pair_time' => substr($row[1], 0, -3) . '-' . substr($row[2], 0, -3)
+            ];
+        }
+        return $data;
+    }
+
+    public function getAllClassrooms(){
+        $data = [];
+        $result = pg_query($this->con, "SELECT * FROM public.\"Classrooms\"");
+        while ($row = pg_fetch_row($result)) {
+            $data[] = ['id' => $row[0] ,'name' => $row[1]];
+        }
+        return $data;
+    }
+
     public function getSchedule($id){
         $data = [];
         $result = pg_query($this->con, "SELECT concat(t5.\"Start_time\", '-', t5.\"End_time\") \"Pair_time\", t1.\"Date\", t6.\"Name\", t3.\"Name\",

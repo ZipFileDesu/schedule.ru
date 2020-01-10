@@ -6,7 +6,15 @@
             'loginStatus' => $session));
     }
     else {
-        echo $twig->render('schedule.html', array('schedule' => $database->getSchedule(1),
-            'date' => $database->getScheduleDate(), 'groups' => $database->getAllGroups(), 'loginStatus' => $session));
+        echo $twig->render('schedule.html', array(
+            'schedule' => $database->getSchedule(1),
+            'date' => $database->getScheduleDate(),
+            'groups' => $database->getAllGroups(),
+            'professors' => $database->getAllProfessors(),
+            'subjects' => $database->getAllSubjects(),
+            'pairs' => $database->getAllPairs(),
+            'classrooms' => $database->getAllClassRooms(),
+            'loginStatus' => $session
+        ));
     }
 ?>
