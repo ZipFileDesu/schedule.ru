@@ -11,4 +11,6 @@ class constants
     const subjectFailedInsert = "Не удалось добавить предмет в базу данных";
     const groupSuccessfullInsert = "Новая группа успешно добавлена в базу данных";
     const groupFailedInsert = "Не удалось добавить группу в базу данных";
+    const scheduleSuccessfullInsert = "Расписание успешно изменено";
+    const scheduleFailedInsert = "Не удалось изменить расписание";
 }

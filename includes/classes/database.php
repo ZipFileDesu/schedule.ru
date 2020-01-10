@@ -71,6 +71,25 @@ class database
         }
     }
 
+    public function getDays(){
+        $start = new DateTime(date("Y/m/d"));
+        $end = new DateTime(date("Y/m/d"));
+        $end = $end->modify('+14 day');
+        $period = new DatePeriod(
+             $start,
+             new DateInterval('P1D'),
+             $end
+        );
+        $data = [];
+        foreach ($period as $key => $value) {
+            if ($value->format('N') == 7) {
+                continue;
+            }
+            $data[] = ['date' => $value->format('Y-m-d')];
+        }
+        return $data;
+    }
+
     public function getAllGroups(){
         $data = [];
         $result = pg_query($this->con, "SELECT * FROM public.\"Groups\"");
@@ -133,6 +152,15 @@ class database
                 'professor' => $row[4], 'group' => $row[5]];
         }
         return $data;
+    }
+
+    public function insertIntoSchedule($date, $pair, $subject, $group, $classroom, $professor){
+        $result = pg_query($this->con,
+            "INSERT INTO public.\"Schedule\"
+                (\"Group_id\", \"Lesson_id\", \"Professor_id\", \"Pair_id\", \"Date\", \"Classroom_id\")
+                VALUES('$group', '$subject', '$professor', '$pair', '$date', '$classroom')"
+        );
+        return $result ? constants::scheduleSuccessfullInsert : constants::scheduleFailedInsert;
     }
 
     public function getScheduleDate(){

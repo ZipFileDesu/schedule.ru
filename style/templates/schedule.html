@@ -11,8 +11,12 @@
 <form class="container main-form border-bottom border-light mt-2" method="post">
     <div class="form-group row">
         <div class="col-2 form-group mb-2">
-            <label for="datapicker">День</label>
-            <input type="text" class="datepicker form-control" id="datapicker" name="day" required>
+            <label for="date">День</label>
+            <select class="form-control form-control" id="date" name="date" required>
+                {% for d in days %}
+                <option value={{ d.date }}>{{ d.date }}</option>
+                {% endfor %}
+            </select>
         </div>
         <div class="col-2 form-group mb-2" >
             <label for="time">Время</label>
@@ -67,7 +71,7 @@
 
 <form class="form-inline main-form" method="get">
     <div class="form-group mx-sm-3 mb-2">
-        <select class="form-control form-control-sm" id="group" name="group">
+        <select class="form-control form-control-sm" id="group" name="group-filter">
             {% for group in groups %}
             <option id="group-elem-{{ group.id }}" value={{ group.id }}>{{ group.name }}</option>
             {% endfor %}
@@ -76,7 +80,8 @@
     <button type="submit" class="btn btn-primary mb-2" id="filterGroup">Выполнить</button>
 </form>
 
-<table class="table tablesorter" id="schedule-table">
+<div class="table-wrapped-scroll-y">
+<table class="table" id="schedule-table">
     <thead>
     <tr>
         <th scope="col">Время</th>
@@ -86,22 +91,22 @@
     </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>8.30-10.00</td>
-            {% for dt in date %}
-            <td>
+    <tr class="table-row">
+        <td>8.30-10.00</td>
+        {% for dt in date %}
+        <td>
             {% for sch in schedule %}
             {% if sch.date == dt.date %}
-                {% if sch.pair_time == "08:30:00-10:00:00" %}
-                    {{ sch.lesson ~ " " ~ sch.classroom }}
-                {% endif %}
+            {% if sch.pair_time == "08:30:00-10:00:00" %}
+            {{ sch.lesson ~ " " ~ sch.classroom }}
+            {% endif %}
             {% endif %}
             {% endfor %}
-            </td>
-            {% endfor %}
-        </tr>
+        </td>
+        {% endfor %}
+    </tr>
 
-    <tr>
+    <tr class="table-row">
         <td>10.10-11.40</td>
         {% for dt in date %}
         <td>
@@ -116,7 +121,7 @@
         {% endfor %}
     </tr>
 
-    <tr>
+    <tr class="table-row">
         <td>11.50-13.20</td>
         {% for dt in date %}
         <td>
@@ -131,7 +136,7 @@
         {% endfor %}
     </tr>
 
-    <tr>
+    <tr class="table-row">
         <td>13.30-15.00</td>
         {% for dt in date %}
         <td>
@@ -146,7 +151,7 @@
         {% endfor %}
     </tr>
 
-    <tr>
+    <tr class="table-row">
         <td>15.10-16.40</td>
         {% for dt in date %}
         <td>
@@ -161,7 +166,7 @@
         {% endfor %}
     </tr>
 
-    <tr>
+    <tr class="table-row">
         <td>16.50-18.20</td>
         {% for dt in date %}
         <td>
@@ -184,16 +189,10 @@
         <td>16.50-18.20</td>
         <td>18.30-19.50</td> -->
 </table>
+</div>
 <script>
   $(document).ready(function() {
-    $('.datepicker').datepicker({
-      language: 'ru',
-      daysOfWeekDisabled: '0,6',
-      todayHighlight: true,
-      defaultViewDate: new Date(),
-      format:'mm/dd/yyyy',
-    }).datepicker("setDate",'now');
+    document.getElementById('group-elem-{{ group_selected }}').setAttribute("selected", "selected");
   });
-  // document.getElementById('group-elem-{{ group_selected }}').setAttribute("selected", "selected");
 </script>
 {% endblock %}

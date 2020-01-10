@@ -70,6 +70,17 @@ th[role=columnheader] {
     cursor: pointer;
 }
 
+.table-wrapped-scroll-y {
+    max-width: 1200px;
+    overflow-x: auto;
+}
+
+.table-row th,
+.table-row td {
+    width: 100%;
+    min-width: 9rem;
+}
+
 /* При нажатии на кнопку, меняем стиль вкладки */
 /*.sidebar a:active {
   color: #ffffff;
