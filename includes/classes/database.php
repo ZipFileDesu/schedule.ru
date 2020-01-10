@@ -80,6 +80,11 @@ class database
         return $data;
     }
 
+    public function insertGroup($new_group){
+        $result = pg_query($this->con,"INSERT INTO public.\"Groups\" (\"Name\") VALUES('$new_group')");
+        return $result ? constants::groupSuccessfullInsert : constants::groupFailedInsert;
+    }
+
     public function getSchedule($id){
         $data = [];
         $result = pg_query($this->con, "SELECT concat(t5.\"Start_time\", '-', t5.\"End_time\") \"Pair_time\", t1.\"Date\", t6.\"Name\", t3.\"Name\",
