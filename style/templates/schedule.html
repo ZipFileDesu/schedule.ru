@@ -67,6 +67,7 @@
         </div>
     </div>
 </form>
+<p>{{ formStatus }}</p>
 {% endif %}
 
 <form class="form-inline main-form" method="get">
@@ -180,6 +181,21 @@
         </td>
         {% endfor %}
         </tr>
+
+    <tr class="table-row">
+        <td>18.30-20.00</td>
+        {% for dt in date %}
+        <td>
+            {% for sch in schedule %}
+                {% if sch.date == dt.date %}
+                    {% if sch.pair_time == "18:30:00-20:00:00" %}
+                        {{ sch.lesson ~ " " ~ sch.classroom }}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </td>
+        {% endfor %}
+    </tr>
 
     </tbody>
     <!-- <td>10.10-11.40</td>
