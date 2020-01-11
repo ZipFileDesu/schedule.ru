@@ -13,4 +13,6 @@ class constants
     const groupFailedInsert = "Не удалось добавить группу в базу данных";
     const scheduleSuccessfullInsert = "Расписание успешно изменено";
     const scheduleFailedInsert = "Не удалось изменить расписание";
+    const scheduleIsExists = "В заданную дату и в заданное время для данной группы уже задано расписание. 
+        Выберите другую дату или другое время";
 }

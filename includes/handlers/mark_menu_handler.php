@@ -1,4 +1,5 @@
 <?php
+/* TODO: Make handler of post form. Also make in database.php new query on alter table of table marks */
     if(isset($_GET['subject'])) {
         $subjectId = $_GET['subject'];
         echo $twig->render('marks.html', array('subjects' => $database->getAllSubjects(),

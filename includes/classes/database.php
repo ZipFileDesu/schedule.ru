@@ -156,11 +156,19 @@ class database
 
     public function insertIntoSchedule($date, $pair, $subject, $group, $classroom, $professor){
         $result = pg_query($this->con,
+            "SELECT * FROM public.\"Schedule\" WHERE \"Pair_id\" = '$pair' AND \"Date\" = '$date'
+                    AND \"Group_id\" = '$group'");
+        if(pg_num_rows($result) >= 1){
+            return constants::scheduleIsExists;
+        }
+        else{
+            $result = pg_query($this->con,
             "INSERT INTO public.\"Schedule\"
                 (\"Group_id\", \"Lesson_id\", \"Professor_id\", \"Pair_id\", \"Date\", \"Classroom_id\")
                 VALUES('$group', '$subject', '$professor', '$pair', '$date', '$classroom')"
-        );
-        return $result ? constants::scheduleSuccessfullInsert : constants::scheduleFailedInsert;
+            );
+            return $result ? constants::scheduleSuccessfullInsert : constants::scheduleFailedInsert;
+        }
     }
 
     public function getScheduleDate(){
