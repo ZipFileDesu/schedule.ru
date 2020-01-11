@@ -71,9 +71,65 @@ class database
         }
     }
 
+    public function getDays(){
+        $start = new DateTime(date("Y/m/d"));
+        $end = new DateTime(date("Y/m/d"));
+        $end = $end->modify('+14 day');
+        $period = new DatePeriod(
+             $start,
+             new DateInterval('P1D'),
+             $end
+        );
+        $data = [];
+        foreach ($period as $key => $value) {
+            if ($value->format('N') == 7) {
+                continue;
+            }
+            $data[] = ['date' => $value->format('Y-m-d')];
+        }
+        return $data;
+    }
+
     public function getAllGroups(){
         $data = [];
         $result = pg_query($this->con, "SELECT * FROM public.\"Groups\"");
+        while ($row = pg_fetch_row($result)) {
+            $data[] = ['id' => $row[0] ,'name' => $row[1]];
+        }
+        return $data;
+    }
+
+    public function insertGroup($new_group){
+        $result = pg_query($this->con,"INSERT INTO public.\"Groups\" (\"Name\") VALUES('$new_group')");
+        return $result ? constants::groupSuccessfullInsert : constants::groupFailedInsert;
+    }
+
+    public function getAllProfessors(){
+        $data = [];
+        $result = pg_query($this->con, "SELECT * FROM public.\"Professors\"");
+        while ($row = pg_fetch_row($result)) {
+            $data[] = ['id' => $row[0] ,'name' => $row[1]];
+        }
+        return $data;
+    }
+
+    public function getAllPairs(){
+        $data = [];
+        $result = pg_query($this->con,
+            "SELECT \"id\", \"Start_time\", \"End_time\" FROM public.\"Pairs\""
+        );
+        while ($row = pg_fetch_row($result)) {
+            $data[] = [
+                'id' => $row[0],
+                'pair_time' => substr($row[1], 0, -3) . '-' . substr($row[2], 0, -3)
+            ];
+        }
+        return $data;
+    }
+
+    public function getAllClassrooms(){
+        $data = [];
+        $result = pg_query($this->con, "SELECT * FROM public.\"Classrooms\"");
         while ($row = pg_fetch_row($result)) {
             $data[] = ['id' => $row[0] ,'name' => $row[1]];
         }
@@ -96,6 +152,15 @@ class database
                 'professor' => $row[4], 'group' => $row[5]];
         }
         return $data;
+    }
+
+    public function insertIntoSchedule($date, $pair, $subject, $group, $classroom, $professor){
+        $result = pg_query($this->con,
+            "INSERT INTO public.\"Schedule\"
+                (\"Group_id\", \"Lesson_id\", \"Professor_id\", \"Pair_id\", \"Date\", \"Classroom_id\")
+                VALUES('$group', '$subject', '$professor', '$pair', '$date', '$classroom')"
+        );
+        return $result ? constants::scheduleSuccessfullInsert : constants::scheduleFailedInsert;
     }
 
     public function getScheduleDate(){
@@ -149,6 +214,11 @@ class database
             $data[] = ['id' => $row[0], 'name' => $row[1]];
         }
         return $data;
+    }
+
+    public function insertSubject($new_subject){
+        $result = pg_query($this->con,"INSERT INTO public.\"Subjects\" (\"Name\") VALUES('$new_subject')");
+        return $result ? constants::subjectSuccessfullInsert : constants::subjectFailedInsert;
     }
 
     public function getSubjectTasks($id){

@@ -51,6 +51,9 @@
         //new Tablesort(document.getElementById('students-table'));
         new Tablesort(document.getElementById('marks-table'));
     });
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
 </script>
 
 </body>
