@@ -21,6 +21,6 @@
     }
     else {
             echo $twig->render('students.html', array('students' => $database->getAllStudents(),
-                'groups' => $database->getAllGroups(), 'loginStatus' => $session));
+                'groups' => $database->getAllGroups(), 'loginStatus' => $session, 'formStatus' => $postStatus));
     }
 ?>
