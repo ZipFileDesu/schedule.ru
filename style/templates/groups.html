@@ -1,6 +1,9 @@
 {% extends 'index.html' %}
 
 {% block content %}
+<script>
+    document.getElementById('groups').classList.add('active');
+</script>
 
 {% if loginStatus == 'guest' %}
 
@@ -27,7 +30,7 @@
     <tbody>
     {% for g in groups %}
     <tr>
-        <td>{{ g.name }}</td>
+        <td><a href="" onclick="window.open('selected_group.php?group_id={{ g.id }}', '_blank', 'height=640,width=640');"> {{ g.name }}</a></td>
     </tr>
     {% endfor %}
     </tbody>
