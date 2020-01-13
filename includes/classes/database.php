@@ -99,6 +99,27 @@ class database
         return $data;
     }
 
+    public function getGroupStudentsById($id){
+        $data = [];
+        $result = pg_query($this->con,
+            "SELECT t2.\"Name\", concat(t1.\"First_Name\", ' ', t1.\"Last_Name\", ' ', t1.\"Middle_Name\") 
+                    FROM public.\"Students\" AS t1 INNER JOIN public.\"Groups\" AS t2 ON t1.\"Group_id\" = t2.id
+                    WHERE \"Group_id\" = '$id'");
+        while ($row = pg_fetch_row($result)) {
+            $data[] = ['group_name' => $row[0] ,'student_name' => $row[1]];
+        }
+        return $data;
+    }
+
+    public function getGroupNameById($id){
+        $data = [];
+        $result = pg_query($this->con, "SELECT \"id\",\"Name\" FROM public.\"Groups\" WHERE \"id\" = '$id'");
+        while ($row = pg_fetch_row($result)) {
+            $data[] = ['id' => $row[0] ,'name' => $row[1]];
+        }
+        return $data;
+    }
+
     public function insertGroup($new_group){
         $result = pg_query($this->con,"INSERT INTO public.\"Groups\" (\"Name\") VALUES('$new_group')");
         return $result ? constants::groupSuccessfullInsert : constants::groupFailedInsert;
